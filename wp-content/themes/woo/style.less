@@ -323,7 +323,7 @@ header {
       margin-right: 0;
     }
   }
-  .head_nav_item {
+  a {
     padding: 0 10px;
     display: block;
     height: 37px;
@@ -335,6 +335,9 @@ header {
     color: white;
     margin-right: 19px;
     i {
+      color: inherit;
+    }
+    span{
       color: inherit;
     }
     &:hover, &.active {
@@ -349,7 +352,11 @@ header {
 
   }
 }
-
+.header_nav .current-menu-item a {
+  background: white;
+  color: @green;
+  border-bottom: 2px solid @grey;
+}
 .logo_section {
   height: 90px;
   .wrapper {
@@ -575,7 +582,7 @@ header {
   }
 }
 
-.nav_cat_item {
+.nav_cat a {
   display: block;
   text-transform: uppercase;
   color: @green;
@@ -583,11 +590,12 @@ header {
   line-height: 30px;
   padding: 0 8px;
   .trans(all, 0.1s);
-  &:hover, &.active {
-    background: @green;
-    color: white;
+}
 
-  }
+.current-menu-item a,
+.nav_cat a:hover {
+  background: @green;
+  color: white;
 }
 
 .nav_cat li {
@@ -635,7 +643,7 @@ header {
   width: 716px;
 }
 
-.slider-item-title {
+.slider-item-title p{
   position: absolute;
   right: 0;
   bottom: 80px;
@@ -939,7 +947,10 @@ header {
   height: 95px;
   background: @green;
   margin-bottom: 85px;
-  .wrapper {
+  .wrapper{
+    height: inherit;
+  }
+  .textwidget{
     height: inherit;
     .flex();
     justify-content: space-between;
@@ -1115,8 +1126,10 @@ header {
   input {
     width: 450px;
     padding: 0 15px;
+    border-right-width: 1.5px;
   }
   button {
+    border-left-width: 1.5px;
     width: 145px;
     &:hover {
       color: #83b228;
@@ -1773,16 +1786,18 @@ header {
 .category-item-grid {
   .flex();
   flex-wrap: wrap;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .category-item-grid .good_item {
-  margin-left: 0;
-  margin-right: 0;
   width: 220px;
   height: 290px;
-  margin-bottom: 25px;
+  margin: 0 20px 25px 0;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
   .img {
+    background: white;
     height: 230px;
   }
   .good_title {

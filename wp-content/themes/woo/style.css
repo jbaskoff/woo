@@ -11,7 +11,6 @@ Version: 1.0
 /*fonts css import*/
 @import "fonts/opensans/opensans.css";
 @import "fonts/dosis/dosis.css";
-
 * {
   margin: 0;
   padding: 0;
@@ -141,7 +140,7 @@ header .wrapper {
 .header_nav li:last-child {
   margin-right: 0;
 }
-.header_nav .head_nav_item {
+.header_nav a {
   padding: 0 10px;
   display: block;
   height: 37px;
@@ -157,11 +156,14 @@ header .wrapper {
   color: white;
   margin-right: 19px;
 }
-.header_nav .head_nav_item i {
+.header_nav a i {
   color: inherit;
 }
-.header_nav .head_nav_item:hover,
-.header_nav .head_nav_item.active {
+.header_nav a span {
+  color: inherit;
+}
+.header_nav a:hover,
+.header_nav a.active {
   background: white;
   color: #709b1d;
   border-bottom: 2px solid #d9d9d9;
@@ -169,6 +171,11 @@ header .wrapper {
 .header_nav .nav_ico {
   font-size: 14px;
   margin-right: 8px;
+}
+.header_nav .current-menu-item a {
+  background: white;
+  color: #709b1d;
+  border-bottom: 2px solid #d9d9d9;
 }
 .logo_section {
   height: 90px;
@@ -433,7 +440,7 @@ header .wrapper {
   justify-content: space-between;
   align-items: center;
 }
-.nav_cat_item {
+.nav_cat a {
   display: block;
   text-transform: uppercase;
   color: #709b1d;
@@ -444,8 +451,8 @@ header .wrapper {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-.nav_cat_item:hover,
-.nav_cat_item.active {
+.current-menu-item a,
+.nav_cat a:hover {
   background: #709b1d;
   color: white;
 }
@@ -487,7 +494,7 @@ header .wrapper {
   position: relative;
   width: 716px;
 }
-.slider-item-title {
+.slider-item-title p {
   position: absolute;
   right: 0;
   bottom: 80px;
@@ -812,6 +819,9 @@ header .wrapper {
 }
 .services .wrapper {
   height: inherit;
+}
+.services .textwidget {
+  height: inherit;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -994,8 +1004,10 @@ header .wrapper {
 .subscribe input {
   width: 450px;
   padding: 0 15px;
+  border-right-width: 1.5px;
 }
 .subscribe button {
+  border-left-width: 1.5px;
   width: 145px;
 }
 .subscribe button:hover {
@@ -1715,16 +1727,18 @@ header .wrapper {
   display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 .category-item-grid .good_item {
-  margin-left: 0;
-  margin-right: 0;
   width: 220px;
   height: 290px;
-  margin-bottom: 25px;
+  margin: 0 20px 25px 0;
+}
+.category-item-grid .good_item:nth-child(3n) {
+  margin-right: 0;
 }
 .category-item-grid .good_item .img {
+  background: white;
   height: 230px;
 }
 .category-item-grid .good_item .good_title {
